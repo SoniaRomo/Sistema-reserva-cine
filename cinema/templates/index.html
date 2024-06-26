@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas de Cine</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    
+    <h5>Bienvenido, {{ nombre }}</h5>
+
+    <h1> cinema</h1>
+
+   
+
+    <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+   
+    
+    <h2><a href="{{ url_for('peliculas') }}">Gestionar peliculas</a></h2>
+    <h2><a href="{{ url_for('salas') }}">Gestionar Salas</a></h2>
+    <h2><a href="{{ url_for('reservas') }}">Gestionar Reservas</a></h2>
+    {% endblock %}
+</body>
+</html>
