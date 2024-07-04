@@ -249,7 +249,9 @@ def delete_reserva(id):
         return redirect(url_for('reservas'))
     return redirect(url_for('login'))
 
-
+@app.route("/cine_magia")
+def cine_magia():
+    return render_template('cine_magia.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
