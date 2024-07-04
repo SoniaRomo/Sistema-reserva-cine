@@ -352,7 +352,10 @@ def delete_horario(id):
         return redirect(url_for('horarios'))
     return redirect(url_for('login'))
 
-
+#vista  a cine_magia.html
+@app.route("/cine_magia")
+def cine_magia():
+    return render_template('cine_magia.html')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinemagia</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/cinemagia-favicon-color.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cine_magia.css') }}">
+        <!--Box Icons-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+         <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <!--Navbar-->
+    <header>
+        <a href="#" class="logo">
+            <i class='bx bxs-movie'></i>Cine Magia
+        </a>
+        <div class="bx bx-menu" id="menu-icon"> </div>
+
+        <!--Menu-->
+        <ul class="navbar">
+            <li><a href="#inicio" class="home-active">Inicio</a></li>
+            <li><a href="#peliculas">Peliculas</a></li>
+            <li><a href="#proxima">proximas</a></li>
+        </ul>
+        <a href="{{ url_for('login') }}" class="btn">Iniciar Sesion</a>
+    </header>
+   
+  <!--Inicio-->
+    <section class="home swiper" id="home">
+        <div class="swiper-wrapper">
+            <!--Box 1-->
+            <div class="swiper-slide container">
+                <img src="{{ url_for('static', filename='img/home1.png') }}" alt="">
+                <div class="home-text">
+                    <span>Marvel Universe</span>
+                    <h1>Deadpool & <br>  Wolverine</h1>
+                    <a href="{{ url_for('reservas') }}" class="btn">Reservar Ahora</a>
+                    <a href="#" class="play">
+                        <i class='bx bx-play'></i>  
+                    </a> 
+                </div>
+            </div>
+            <!--Box 2-->
+            <div class="swiper-slide container">
+                <img src="{{ url_for('static', filename='img/home2.png') }}" alt="">
+                <div class="home-text">
+                    <span>Illumination Entertainment</span>
+                    <h1>Mi Villano <br> Favorito 4</h1>
+                    <a href="{{ url_for('reservas') }}" class="btn">Reservar Ahora</a>
+                    <a href="#" class="play">
+                        <i class='bx bx-play'></i>  
+                    </a>
+                </div>
+            </div>
+             <!--Box 3-->
+             <div class="swiper-slide container">
+                <img src="{{ url_for('static', filename='img/home3.png') }}" alt="">
+                <div class="home-text">
+                    <span> Sony Pictures Entertainment</span>
+                    <h1>Bad Boys: <br> Ride or Die</h1>
+                    <a href="{{ url_for('reservas') }}" class="btn">Reservar Ahora</a>
+                    <a href="#" class="play">
+                        <i class='bx bx-play'></i>   
+                    </a>
+                </div>
+            </div>
+          </div>
+          
+          <div class="swiper-pagination"></div>
+    </section>
+      <!--Peliculas-->
+    <section class="movies" id="movies">
+        <h2 class="heading">Películas de Estreno</h2>
+        <!--Películas Contenedor-->
+        <div class="movies-container">
+            <!--Box 1-->
+            <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m1.png') }}" alt="">
+                </div>
+                <h3>Deadpool & Wolverine</h3>
+                <span>127 min | Acción </span>
+              </div>
+              
+              <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m2.png') }}" alt="">
+                </div>
+                <h3>Despicable Me 4</h3>
+                <span>95 min | Animación </span>
+              </div>
+              
+              <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m3.png') }}" alt="">
+                </div>
+                <h3>Intensamente 2</h3>
+                <span>100 min | Aventura </span>
+              </div>
+              
+              <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m4.png') }}" alt="">
+                </div>
+                <h3>A Quiet Place: Day one</h3>
+                <span>100 min | Terror </span> </div>
+              
+              <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m5.png') }}" alt="">
+                </div>
+                <h3>Bad Boys: Ride or Die</h3>
+                <span>115 min | Acción </span>
+              </div>
+              
+              <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m6.png') }}" alt="">
+                </div>
+                <h3>Maxxxine</h3>
+                <span>134 min | Suspenso </span>
+              </div>
+              
+              <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m7.png') }}" alt="">
+                </div>
+                <h3>Tuesday</h3>
+                <span>111 min | Drama </span>
+              </div>
+              
+              <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m8.png') }}" alt="">
+                </div>
+                <h3>EL SECRETO DEL PAPA</h3>
+                <span>122 min | Suspenso </span>
+              </div>
+              
+              <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m9.png') }}" alt="">
+                </div>
+                <h3>Golpe de suerte</h3>
+                <span>100 min | Comedia Romántica </span> </div>
+              
+              <div class="box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/m10.png') }}" alt="">
+                </div>
+                <h3>Lazos de vida</h3>
+                <span>118 min | Drama </span>
+              </div>
+        </div>
+    </section>
+        <!--Proximo-->
+<section class="coming" id="coming">
+    <h2 class="heading">Muy pronto</h2>
+    <!---Proximamente Container-->
+    <div class="coming-container swiper">
+        <div class="swiper-wrapper">
+            <!--Box 1-->
+            <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming1.png') }}" alt="">
+                </div>
+                <h3>Malta</h3>
+                <span>120 min | Acción </span>
+              </div>
+              
+              <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming2.png') }}" alt="">
+                </div>
+                <h3>Beautiful Wedding</h3>
+                <span>107 min | Comedia Romántica </span>  </div>
+              
+              <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming3.png') }}" alt="">
+                </div>
+                <h3>Amelia's Children</h3>
+                <span>157 min | Suspenso </span>
+              </div>
+              
+              <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming4.png') }}" alt="">
+                </div>
+                <h3>Twisters</h3>
+                <span>122 min | Acción </span>
+              </div>
+              
+              <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming5.png') }}" alt="">
+                </div>
+                <h3>Fly Me to the Moon</h3>
+                <span>139 min | Aventura </span>
+              </div>
+              
+              <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming6.png') }}" alt="">
+                </div>
+                <h3>Farang</h3>
+                <span>134 min | Suspenso </span>
+              </div>
+              
+              <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming7.png') }}" alt="">
+                </div>
+                <h3>Immaculate</h3>
+                <span>134 min | Suspenso </span>
+              </div>
+              
+              <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming8.png') }}" alt="">
+                </div>
+                <h3>The great scaper</h3>
+                <span>122 min | Suspense (or Thriller) </span> </div>
+              
+              <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming9.png') }}" alt="">
+                </div>
+                <h3>Hit Man</h3>
+                <span>100 min | Acción </span>
+              </div>
+              
+              <div class="swiper-slide box">
+                <div class="box-img">
+                  <img src="{{ url_for('static', filename='img/coming10.png') }}" alt="">
+                </div>
+                <h3>Borderlands</h3>
+                <span>118 min | Acción </span>
+              </div>
+        </div>
+    </div>
+</section>
+    <!--Nueva Carta-->
+        <section class="newsletter" id="newsletter">
+            <h2>Suscribate para <br> obtener novedades</h2>
+            <form action="">
+                <input type="email" class="email" placeholder="ingresa tu email" required>
+                <input type="submit" value="Suscribirse" class="btn">
+            </form>
+        </section>
+
+        <!--Pie de Pagina-->
+        <section class="footer">
+            <a href="#" class="logo">
+                <i class='bx bxs-movie'></i>Cine Magia
+            </a>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </section>
+
+        <!--Copyright-->
+        <div class="copyright">
+            <p>&#169; 2024 Daniel y Sonia.Todos los derechos reservados.</p>
+        </div>
+
+      <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!--enlace js personalizado-->
+  <script src="{{ url_for('static', filename='js/cine_magia.js') }}"></script>
+</body>
+</html>
