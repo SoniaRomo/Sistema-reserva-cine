@@ -6,49 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Reservas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('index') }}">Cine Reservas</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                {% if 'loggedin' in session %}
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="logo" href="{{ url_for('index') }}" style="text-decoration: none;">
+            Cine Reservas
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    {% if 'loggedin' in session %}
+    
 
-               
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('usuarios') }}">Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('peliculas') }}">Peliculas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('salas') }}">Salas</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('reservas') }}">Reservas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('cine_magia') }}">Cine Magia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('logout') }}">Cerrar Sesión</a>
-                </li>
-               
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('login') }}">Iniciar Sesión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('register') }}">Registrarse</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('usuarios') }}">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('peliculas') }}">Peliculas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('salas') }}">Salas</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('reservas') }}">Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cine_magia') }}">Cine Magia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+                    </li>
+                   
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('register') }}">Registrarse</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>    
+    </header>
     
     <div class="container mt-4">
         {% with messages = get_flashed_messages(with_categories=true) %}
