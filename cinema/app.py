@@ -15,9 +15,7 @@ bcrypt = Bcrypt(app)
 def index():
     if 'loggedin' in session:
         cur = mysql.connection.cursor()
-        cur.execute('SELECT * FROM Pelicula')
-        peliculas = cur.fetchall()
-        return render_template('index.html', peliculas=peliculas, nombre=session['nombre'])
+        return render_template('index.html',nombre=session['nombre'])
     return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
