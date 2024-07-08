@@ -203,20 +203,50 @@ def reservas():
 
 @app.route('/add_reserva', methods=['POST'])
 def add_reserva():
-    if 'loggedin' in session:
-        if request.method == 'POST':
-            id_usuario = request.form['id_usuario']
-            id_pelicula = request.form['id_pelicula']
-            id_sala = request.form['id_sala']
-            asientos = request.form['asientos']
-            fecha = request.form['fecha']
-            hora = request.form['hora']
-            cur = mysql.connection.cursor()
-            cur.execute("INSERT INTO Reserva (usuario_id, pelicula_id, sala_id, asientos, fecha, hora) VALUES (%s, %s, %s, %s, %s, %s)", 
-                    (id_usuario, id_pelicula, id_sala, asientos, fecha, hora))
-            mysql.connection.commit()
-            return redirect(url_for('reservas'))
-    return redirect(url_for('add_reserva.html'))
+  if 'loggedin' in session:
+    if request.method == 'POST':
+      username = request.form['nombre_usuario']
+      titulo_pelicula = request.form['titulo_pelicula'] 
+      nombre_sala = request.form['nombre_sala']
+      asientos = request.form['asientos']
+      fecha = request.form['fecha']
+      hora = request.form['hora']
+      cur = mysql.connection.cursor()
+
+     
+
+      #  Busca el Id del usuario por el nombre
+      cur.execute("SELECT id FROM Usuario WHERE nombre LIKE %s", ['%' + username + '%'])
+      usuario_result = cur.fetchone()
+      if usuario_result:
+           id_usuario = usuario_result[0] 
+      else:
+           return render_template('add_reserva.html', error="Usuario no encontrado")
+      
+      #Buscar el id de la sala por el nombre
+      cur.execute("SELECT id FROM Sala WHERE nombre LIKE %s", ['%' + nombre_sala + '%'])
+      sala_result = cur.fetchone()
+      if sala_result :
+          id_sala = sala_result[0]
+      else :
+          return render_template('add_reserva.html', error="sala no encontrada")
+ 
+ # Buscar el ID de la película por su título
+      cur.execute("SELECT id FROM Pelicula WHERE titulo LIKE %s", ['%' + titulo_pelicula + '%'])
+      pelicula_result = cur.fetchone()
+      # Verificar si se encontró la película
+      if pelicula_result:
+        id_pelicula = pelicula_result[0]  # Obtener el ID de la película del resultado
+        # Insertar la reserva con el ID de la película obtenido
+        cur.execute("INSERT INTO Reserva (usuario_id, pelicula_id, sala_id, asientos, fecha, hora) VALUES (%s, %s, %s, %s, %s, %s)", 
+                  (id_usuario, id_pelicula, id_sala, asientos, fecha, hora))
+        mysql.connection.commit()
+        return redirect(url_for('reservas'))
+      else:
+        # Si no se encontró la película, mostrar un mensaje de error
+        return render_template('add_reserva.html', error="Película no encontrada")
+  return redirect(url_for('login'))
+
 
 @app.route('/edit_reserva/<int:id>', methods=['GET', 'POST'])
 def edit_reserva(id):

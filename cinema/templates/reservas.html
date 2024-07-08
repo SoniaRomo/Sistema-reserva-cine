@@ -52,16 +52,16 @@
             <div class="card-body">
                 <form action="{{ url_for('add_reserva') }}" method="POST">
                     <div class="mb-3">
-                        <label for="id_usuario" class="form-label">ID Usuario:</label>
-                        <input type="number" class="form-control" id="id_usuario" name="id_usuario" placeholder="ID Usuario" required>
+                        <label for="nombre_usuario" class="form-label">Nombre del usuario</label>
+                        <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" placeholder="Ingresa tu nombre" required>
                     </div>
+                        <div class="mb-3">
+                          <label for="titulo_pelicula" class="form-label">Título de la película:</label>
+                          <input type="text" class="form-control" id="titulo_pelicula" name="titulo_pelicula" placeholder="Ingresa un titulo" required>
+                        </div>
                     <div class="mb-3">
-                        <label for="id_pelicula" class="form-label">ID Película:</label>
-                        <input type="number" class="form-control" id="id_pelicula" name="id_pelicula" placeholder="ID Película" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="id_sala" class="form-label">ID Sala:</label>
-                        <input type="number" class="form-control" id="id_sala" name="id_sala" placeholder="ID Sala" required>
+                        <label for="nombre_sala" class="form-label">Nombre de la sala</label>
+                        <input type="text" class="form-control" id="nombre_sala" name="nombre_sala" placeholder="Ingresa el nombre de la Sala" required>
                     </div>
                     <div class="mb-3">
                         <label for="asientos" class="form-label">Asientos:</label>
